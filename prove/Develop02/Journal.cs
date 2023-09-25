@@ -5,33 +5,50 @@ public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
-    public void AddEntry(string newEntry)
+    public void AddEntry()
     {
+        Entry entry = new Entry();
+        entry.Write();
+        _entries.Add(entry);
         
     }
 
     public void DisplayAll()
     {
-        /*StreamReader sr = new StreamReader("lista.txt");
-        cargarlista = sr.ReadLine();
-        while (cargarlista != null)
+        foreach(Entry entry in _entries)
         {
-            Console.WriteLine(cargarlista);
-            cargarlista = sr.ReadLine();
+            entry.Display();
         }
-        sr.Close();
-        Console.ReadLine();
-
-
-    }*/
     }
 
-    public void SaveToFile(List<Journal> prompt)
+    public void SaveToFile()
     {
+        // prompt user for the file name
+        using (StreamWriter sw = new StreamWriter("lista.txt", true))
+        {
+            foreach(Entry entry in _entries)
+            {
+                sw.WriteLine(entry._date);
+                sw.WriteLine(entry._promptText);
+                sw.WriteLine(entry._entryText);
+            }
+        }
       
     }
-    public void LoadFromFile(string file)
+    public void LoadFromFile()
     {
-        
+        // prompt the user for the file name
+        string path = "lista.txt";
+        string[] lines = File.ReadAllLines(path);
+
+        for(int x = 0; x < lines.Length; x+=3)
+        {
+            string date = lines[x];
+            string prompt = lines[x + 1];
+            string entryString = lines[x + 2];
+            Entry entry = new Entry(date, prompt, entryString);
+            _entries.Add(entry);
+
+        }
     }
 }

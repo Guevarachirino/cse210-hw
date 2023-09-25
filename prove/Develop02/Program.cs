@@ -13,10 +13,9 @@ class Program
     static void Main(string[] args)
     {
         //Console.WriteLine("Hello Develop02 World!");
+        Journal journal = new Journal();
 
-        bool quit = false;
-
-        while (!quit)
+        while (true)
         {
 
             try
@@ -28,72 +27,45 @@ class Program
                 Console.WriteLine("4. Save");
                 Console.WriteLine("5. Quit");
                 Console.WriteLine("What would you like to do?");
-                
+
                 int option = Convert.ToInt32(Console.ReadLine());
 
                 switch (option)
                 {
 
                     case 1:
-                        //mostramos los promts que tenemos en la clase promptGenerator
-                        PromptGenerator generator = new PromptGenerator();
-                        string var1 = generator.GetRandomPrompt();
-                        string escribir = Console.ReadLine();
 
-                        //comenzamos el archivo txt
-                        StreamWriter sw = new StreamWriter("lista.txt", true);
-
-                        //obtenemos la fecha de hoy 
-                        DateTime date = DateTime.Now;
-                        sw.WriteLine(date);
-                        
-                        sw.WriteLine(var1);
-
-                        sw.WriteLine(escribir);
-                    
-                        sw.Dispose();
-                        
-
+                        journal.AddEntry();
                         break;
 
                     case 2:
-
-                        const string path = "lista.txt";
-                        StreamReader reader = new StreamReader(path);
-                        string line = reader.ReadLine();
-
-                         while(line != null)
-                        {
-                            Console.WriteLine(line);
-                            line = reader.ReadLine();
-
-                        }
-
-
+                        journal.DisplayAll();
                         break;
 
                     case 3:
+                        journal.LoadFromFile();
                         break;
 
                     case 4:
+                        journal.SaveToFile();
                         break;
 
                     case 5:
-                            Console.WriteLine("Bye");
+                        Console.WriteLine("Bye");
+                        Environment.Exit(0);
                         break;
-                    
+
                     default:
-                       Console.WriteLine("What would you like to do?");
-                       break;
+                        Console.WriteLine("Invalid option");
+                        break;
 
                 }
             }
-            catch(FormatException e)
+            catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-        Console.ReadLine();
-        
+
     }
 }

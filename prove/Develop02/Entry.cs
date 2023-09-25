@@ -3,23 +3,29 @@ using System;
 public class Entry
 {
 
-public string _date;
-public string _promptText;
-public string _entryText; 
-
-public void Display()
+    public string _date;
+    public string _promptText;
+    public string _entryText;
+    PromptGenerator generator = new PromptGenerator();
+                        
+    public Entry(){}
+    public Entry(string date, string prompt, string entry)
     {
-        //Console.WriteLine($"{_date} {_promptText} {_entryText}");
+        _date = date;
+        _promptText = prompt;
+        _entryText = entry;
+    }
 
-        /*const string path = "lista.txt";
-        StreamReader reader = new StreamReader(path);
-        string? line = reader.ReadLine();
+    public void Display()
+    {
+        Console.WriteLine($"Date: {_date}\nPrompt: {_promptText}\n Entry{_entryText}\n");
+    }
 
-        while(line != null){
-            Console.WriteLine(line);
-            line = reader.ReadLine();
-
-        }*/
+    public void Write()
+    {
+        _promptText = generator.GetRandomPrompt();
+        _entryText = Console.ReadLine();
+        _date = DateTime.Now.ToString();
     }
 }
 
