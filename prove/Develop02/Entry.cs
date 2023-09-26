@@ -6,6 +6,7 @@ public class Entry
     public string _date;
     public string _promptText;
     public string _entryText;
+    // llamando la clase promptgenerator para obtener las preguntas 
     PromptGenerator generator = new PromptGenerator();
                         
     public Entry(){}
@@ -18,9 +19,9 @@ public class Entry
 
     public void Display()
     {
-        Console.WriteLine($"Date: {_date}\nPrompt: {_promptText}\n Entry{_entryText}\n");
+        Console.WriteLine($"Date: {_date}\nPrompt: {_promptText}\n Entry: {_entryText}\n");
     }
-
+        //escribiendo en el txt file. 
     public void Write()
     {
         _promptText = generator.GetRandomPrompt();

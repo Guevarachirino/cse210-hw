@@ -7,7 +7,7 @@ public class PromptGenerator
 
     public string GetRandomPrompt()
     {
-
+        //funcion para el random question. 
         Random rnd = new Random();
         string[] prompts =
         {

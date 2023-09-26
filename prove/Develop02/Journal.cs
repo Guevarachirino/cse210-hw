@@ -41,6 +41,8 @@ public class Journal
         string path = "lista.txt";
         string[] lines = File.ReadAllLines(path);
 
+        //loop nos ayuda a contar las 3 filas con los datos que tenemos en el lista.txt 
+        //los cuales son 3 fecha, prompt y la pregunta 
         for(int x = 0; x < lines.Length; x+=3)
         {
             string date = lines[x];
