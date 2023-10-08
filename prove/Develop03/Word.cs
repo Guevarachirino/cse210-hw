@@ -21,13 +21,14 @@ public class Word{
     public void Hide()
     {
         //we need the text, we need to check if the text is hidden or not. 
-        Random rnd = new Random();
+        
 
     
     }
 
     public void Show(string Hide)
     {
+       Reference reference = new Reference();
         
     }
 
