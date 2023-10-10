@@ -8,6 +8,7 @@ public class Word{
    public Word(string text)
     {
         _text = text;
+        _isHidden = false;
         
         
     }
@@ -20,7 +21,8 @@ public class Word{
 
     public void Hide()
     {
-        //we need the text, we need to check if the text is hidden or not. 
+        //we need the text, we need to check if the text is hidden or not.
+        _isHidden = true; 
         
 
     
@@ -28,16 +30,17 @@ public class Word{
 
     public void Show(string Hide)
     {
-       Reference reference = new Reference();
+       //Reference reference = new Reference();
+       _isHidden = false;
         
     }
 
-    public void IsHidden()
+    public bool IsHidden()
     {
-        
+        return _isHidden;
     }
     public string GetDisplayText()
     {
-        return"";
+        return _isHidden ? new string('_', _text.Length) : _text;
     }
 }

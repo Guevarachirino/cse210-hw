@@ -12,7 +12,7 @@ public class Scripture{
     Reference reference = new Reference();
     public Scripture( Reference reference, string text)
     {
-        this.reference = reference;
+        this._reference = reference;
         this._text = text;
         this._words = new List<Word>();
         /*_reference = reference;
