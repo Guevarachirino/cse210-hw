@@ -15,7 +15,7 @@ public class Scripture{
         this._reference = reference;
         this._text = text;
         this._words = new List<Word>();
-        /*_reference = reference;
+        _reference = reference;
         string[] words = text.Split(' ');
 
         foreach (var word in words)
@@ -23,7 +23,7 @@ public class Scripture{
             Word word_one = new Word(word);
             _words.Add(word_one);
 
-        }*/
+        }
 
        
 
@@ -46,17 +46,18 @@ public class Scripture{
     {
         // Display the reference and text of the scripture
         //Console.WriteLine(reference);
+
         string[] gettinword = text.Split(' ');
         foreach (string _words in gettinword)
         {
             // Check if the word is hidden
-            if (_words.Contains(_words))
+            if (text.Contains(_words))
             {
-                Console.Write("_____ ");
+                Console.Write("___________ ");
             }
             else
             {
-                Console.Write(_words + " ");
+                Console.Write(text + " ");
             }
         }
         Console.WriteLine();

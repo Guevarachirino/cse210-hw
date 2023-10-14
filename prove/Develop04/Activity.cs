@@ -6,13 +6,31 @@ public class Activity
     private string _description;
     private int _duration;
 
-    public Activity()
+    public Activity(string name, string description, int duration)
     {
+        _name = name;
+        _description = description;
+        _duration = duration;
 
     }
 
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+     public int GetDuration()
+     {
+        return _duration;
+     }
+
     public void DisplayStartingMessage()
     {
+        Console.WriteLine($"welcome to the {_name}");
 
     }
 
@@ -27,6 +45,7 @@ public class Activity
     }
     public void ShowCountDown(int seconds)
     {
+        _duration = seconds;
 
     }
 

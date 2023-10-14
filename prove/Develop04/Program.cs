@@ -24,7 +24,9 @@ class Program
                 {
 
                     case 1:
-
+                        string description1 = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing";
+                        
+                        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", {description1}, "");
                         
                         break;
 
