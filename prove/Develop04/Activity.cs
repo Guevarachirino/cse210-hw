@@ -36,7 +36,7 @@ public class Activity
 
     public void DisplayEndingMessage()
     {
-        
+        Console.WriteLine("You have done a good job");
     }
 
     public void ShowSpinner(int seconds)
